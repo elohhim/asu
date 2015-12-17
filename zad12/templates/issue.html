@@ -1,0 +1,31 @@
+<h1>Zgłoszenie ID#<TMPL_VAR ID> (<TMPL_VAR STATUS>)</h1>
+    <TMPL_IF NAME="ESCALATES">
+        <h2>Eskalacja 
+            <a href="<TMPL_VAR CGI>&id=<TMPL_VAR ESCALATES>">ID#<TMPL_VAR ESCALATES></a>
+        </h2>
+    </TMPL_IF>
+    <TMPL_IF NAME="ESCALATED">
+        <h2>Eskalowane przez 
+            <a href="<TMPL_VAR CGI>&id=<TMPL_VAR ESCALATED>">ID#<TMPL_VAR ESCALATED></a>
+        </h2>
+    </TMPL_IF>
+    <h2>Adres strony:</h2>
+    <TMPL_VAR URL><br>
+    <h2>Opis:</h2>
+    <pre><TMPL_VAR DESC></pre><br>
+    <h2>Zgłaszający:</h2>
+    <TMPL_VAR USER> (<a href="mailto:<TMPL_VAR NAME=MAIL>"><TMPL_VAR MAIL></a>)<br>
+    <h2>Komentarze:</h2>
+    <ul>
+    <TMPL_LOOP NAME=COMMENTS>
+        <li><TMPL_VAR DATESTAMP> <b><TMPL_VAR USER></b>: <TMPL_VAR TEXT></li>
+    </TMPL_LOOP>
+    </ul>
+    <h2>Historia:</h2>
+    <ul>
+    <TMPL_LOOP NAME=HISTORY>
+        <li><TMPL_VAR DATESTAMP> <b><TMPL_VAR USER></b> zmienił status na <b><TMPL_VAR STATUS></b></li>
+    </TMPL_LOOP>
+    </ul>
+    <br>
+    <a href="issues.cgi?action=issue_list">Powrót do listy</a>

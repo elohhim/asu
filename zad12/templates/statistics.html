@@ -1,0 +1,35 @@
+<TMPL_INCLUDE NAME="top.html">
+<h1>Statystyki</h1>
+<h2>Ilość zgłoszeń wg statusu</h2>
+<table>
+    <thead>
+        <th>Status</th>
+        <th>Liczba zgłoszeń</th>
+    </thead>
+    <TMPL_LOOP NAME=BY_STATUS>
+    <tr>
+        <td><TMPL_VAR STATUS></td>
+        <td style="text-align: center;"><TMPL_VAR COUNT></td>
+    </tr>
+    </TMPL_LOOP>
+    <tr>
+</table>
+<h2>Ilość zgłoszeń wg czasu obsługi</h2>
+<table>
+    <thead>
+        <th>Czas obsługi</th>
+        <th>Zrealizowane</th>
+        <th>Odrzucone</th>
+        <th>W toku</th>
+    </thead>
+    <TMPL_LOOP NAME=BY_TIME>
+    <tr>
+        <td><TMPL_VAR TIME_PERIOD></td>
+        <td style="text-align: center;"><TMPL_VAR ENDED></td>
+        <td style="text-align: center;"><TMPL_VAR INVALID></td>
+        <td style="text-align: center;"><TMPL_VAR GOING></td>
+    </tr>
+    </TMPL_LOOP>
+    <tr>
+</table>
+<TMPL_INCLUDE NAME="bottom.html">

@@ -1,0 +1,48 @@
+<TMPL_INCLUDE NAME="top.html">
+    <table>
+        <thead style="text-align: left">
+            <th><h2>Dodaj komentarz</h2></th>
+            <th><h2>Eskaluj</h2></th>
+            <th><h2>Zmień status</h2></th>
+        </thead>
+        <tr>
+            <td>
+                
+                <form action="<TMPL_VAR CGI>" method="post">
+                    <input type="hidden" name="action" value="add_comment">
+                    <input type="hidden" name="issue_id" value="<TMPL_VAR ID>">
+                    <textarea name="text" rows="10" cols="40" required>Wpisz komentarz...</textarea><br>
+                    Data <input type="datetime-local" name="datestamp"><br>
+                    <input type="submit" value="Dodaj komentarz">
+                </form>
+            </td>
+            <td>
+                <form action="<TMPL_VAR NAME=CGI>" method="post">
+                    <input type="hidden" name="action" value="escale_issue">
+                    <input type="hidden" name="escalated_id" value="<TMPL_VAR ID>">
+                    <textarea name="reason" rows="10" cols="40" required 
+                    <TMPL_IF NAME="INACTIVE_STATUS">disabled<TMPL_ELSE><TMPL_IF NAME="ESCALATED">disabled</TMPL_IF></TMPL_IF>
+                    >Powód eskalacji...</textarea><br>
+                    Data <input type="datetime-local" name="datestamp"><br>
+                    <input type="submit" value="Eskaluj" 
+                        <TMPL_IF NAME="INACTIVE_STATUS">disabled<TMPL_ELSE><TMPL_IF NAME="ESCALATED">disabled</TMPL_IF></TMPL_IF>
+                    >
+                </form>
+            </td>
+            <td>
+                <form action="<TMPL_VAR CGI>" method="post">
+                    <input type="hidden" name="action" value="change_status">
+                    <input type="hidden" name="issue_id" value="<TMPL_VAR ID>">
+                    <select style="width: 150px;" name="status" required <TMPL_IF NAME="INACTIVE_STATUS">disabled</TMPL_IF>>
+                        <TMPL_LOOP NAME=STATUS_LIST>
+                            <option value="<TMPL_VAR OPT>"><TMPL_VAR OPT></option>
+                        </TMPL_LOOP>
+                    </select><br>
+                    Data <input type="datetime-local" name="datestamp"><br>
+                    <input type="submit" value="Zmień status" <TMPL_IF NAME="INACTIVE_STATUS">disabled</TMPL_IF>>
+                </form>
+            </td>
+        </tr>
+     </table><hr>
+ <TMPL_INCLUDE NAME="issue.html">
+<TMPL_INCLUDE NAME="bottom.html">

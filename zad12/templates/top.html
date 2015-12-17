@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<title>ASU</title>
+<meta charset="UTF-8" />
+<style>
+    table {border: 1px solid black; border-collapse: collapse;}
+    thead {border-bottom: 1px solid black; text-align: left;}
+    tr {border-bottom: 1px solid black;}
+</style>
+</head>
+<body>
+<TMPL_IF NAME="LOGGED">
+    Zalogowany jako: <b><TMPL_VAR LOGGED_USER></b> <a href="issues.cgi?action=logout">wyloguj</a>
+<TMPL_ELSE>
+    Nie jesteś zalogowany
+</TMPL_IF>
+<hr>

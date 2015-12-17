@@ -1,0 +1,22 @@
+<TMPL_INCLUDE NAME="top.html">
+<h1>ASU Zadanie 12 - lista zgłoszeń</h1>
+<a href="issues.cgi?action=report_issue"><h2>Zgłoś błąd</h2></a>
+<h2>Panel administracyjny</h2>
+<TMPL_IF NAME="LOGGED">
+<ul>
+    <li><a href="<TMPL_VAR CGI>?action=issue_list">Lista zgłoszeń</a></li>
+    <li><a href="<TMPL_VAR CGI>?action=statistics">Statystyki</a></li>
+</ul>
+<TMPL_ELSE>
+<h2>Zaloguj do panelu administracyjnego</h2>
+<form action="issues.cgi" method="post">
+    <input type="hidden" name="action" value="login" required>
+    <label for="login">Użytkownik:</label>
+    <input type="text" name="login" required>
+    <label for="pwd">Hasło:</label>
+    <input type="password" name="pwd">
+    <input type="submit" value="Zaloguj">
+</form><br>
+<p style="color: red;"><TMPL_VAR MSG></p>
+</TMPL_IF>
+<TMPL_INCLUDE NAME="bottom.html">

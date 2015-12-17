@@ -1,0 +1,21 @@
+<TMPL_INCLUDE NAME="top.html">
+<h1>Lista zgłoszeń</h1>
+<table style="width:600px;">
+    <thead>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Status</th>
+        <th>Pokaż</th>
+        <th>Edytuj</th>
+    </thead>
+<TMPL_LOOP NAME=LIST>
+    <tr>
+        <td>ID#<TMPL_VAR ID> </td>
+        <td><TMPL_VAR DATESTAMP></td>
+        <td><TMPL_VAR STATUS></td>
+        <td><a href="<TMPL_VAR CGI>?action=show_issue&id=<TMPL_VAR ID>">Pokaż</a></td>
+        <td><a href="<TMPL_VAR CGI>?action=edit_issue&id=<TMPL_VAR ID>">Edytuj</a></td>
+    </tr>
+</TMPL_LOOP>
+</table>
+<TMPL_INCLUDE NAME="bottom.html">

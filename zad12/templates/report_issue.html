@@ -1,0 +1,23 @@
+<TMPL_INCLUDE NAME="top.html">
+    <h1>Zgłoś problem</h1>
+    <form action="<TMPL_VAR NAME=CGI>" method="post">
+        <input type="hidden" name="action" value="create_issue">
+        <fieldset>
+            <legend>Opis problemu</legend>
+            <label for="url">Adres strony</label> <br>
+            <input type="url" name="url"  required> <br>
+            <label for="desc">Opis</label> <br>
+            <textarea name="desc" rows="10" cols="40" required>Krótko opisz swój problem...</textarea><br>
+            Data<input type="datetime-local" name="datestamp">
+        </fieldset>
+        <fieldset>
+            <legend>Dane kontaktowe</legend>
+            <label for="user">Imię</label> <br>
+            <input type="text" name="user" required > <br>
+            <label for="email">E-mail</label> <br>
+            <input type="email" name="email" required>
+        </fieldset>
+        <br><br>
+        <input type="submit" value="Zgłoś">
+    </form>
+<TMPL_INCLUDE NAME="bottom.html">
