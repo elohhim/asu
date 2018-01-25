@@ -5,6 +5,6 @@ Realizacja projektu na przedmiot Administrowanie systemem Unix i siecią TCP/IP,
 Lista zgłoszeń.
 
 ### Autor: 
-Jan Kumor
+Jan Kumor  
 Politechnika Warszawska  
 Wydział Elektroniki i Technik Informacyjnych
